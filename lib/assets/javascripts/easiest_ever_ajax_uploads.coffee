@@ -30,7 +30,8 @@ class EasiestAjaxUploader
       # do actual uploading
       form.addClass "uploading"
       EasiestAjaxUploader.uploadStarted input, form, EasiestAjaxUploader.uploadStack
-      fd = new FormData(e.target.form)
+      fd = new FormData()
+      fd.append('file', e.target.form)
       console.log "File type: " + file.type
       $.ajax
         url: form.attr("action")
